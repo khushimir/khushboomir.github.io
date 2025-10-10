@@ -4,8 +4,214 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khushboo Nazir - Cybersecurity & Development Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #1a1a2e;
+            --card-color: #16213e;
+            --primary-color: #0f3460;
+            --accent-color: #e94560;
+            --text-color: #e0e0e0;
+            --heading-color: #ffffff;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: rgba(22, 33, 62, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 90%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo a {
+            color: var(--heading-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            padding: 0 5%;
+        }
+
+        section {
+            padding: 8rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--border-color);
+        }
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--heading-color);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            border-radius: 2px;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 0.5rem; }
+        .hero .tagline { font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1rem; }
+        .hero .summary-pitch { max-width: 600px; margin-bottom: 2rem; }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: var(--heading-color);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(233, 69, 96, 0.2);
+        }
+
+        .project-card {
+            background-color: var(--card-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .project-card h3 { font-size: 1.8rem; margin-top: 0; color: var(--accent-color); }
+        .project-card .role { font-weight: 500; margin-bottom: 1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 1rem; }
+        .project-card .keywords { margin-top: 1.5rem; color: var(--accent-color); font-size: 0.9rem; }
+        .details-link { color: var(--text-color); text-decoration: none; font-weight: bold; margin-top: 1rem; display: inline-block; }
+        .details-link:hover { color: var(--accent-color); }
+
+        .about { text-align: center; }
+        .bio { max-width: 700px; margin: 0 auto 3rem auto; }
+        .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; text-align: left; }
+        .skills h3 { color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; }
+        .skill-list, .cert-list, .interest-list { list-style: none; padding: 0; }
+        .skill-list li, .cert-list li, .interest-list li { margin-bottom: 1rem; }
+        .skill-list i, .interest-list i { margin-right: 10px; color: var(--accent-color); }
+
+        .contact p { text-align: center; max-width: 600px; margin: 0 auto 2rem auto; }
+        .social-links { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+        .social-link {
+            color: var(--heading-color);
+            background-color: var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .social-link:hover { transform: translateY(-3px); }
+        .social-link.linkedin:hover { background-color: #0e76a8; }
+        .social-link.email:hover { background-color: #c71610; }
+
+        form {
+            max-width: 600px;
+            margin: 2rem auto 0 auto;
+            display: grid;
+            gap: 1rem;
+        }
+        form label { font-weight: 600; }
+        form input, form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            background-color: var(--primary-color);
+            color: var(--text-color);
+        }
+        form button {
+            background-color: var(--accent-color);
+            color: var(--heading-color);
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        form button:hover { background-color: #d43a53; }
+
+        footer { text-align: center; padding: 2rem 5%; background-color: var(--card-color); }
+    </style>
 </head>
 <body>
 
@@ -35,10 +241,10 @@
             
             <article class="project-card">
                 <h3>Collaborative Content Channel Management</h3>
-                <p class="role"><i class="fas fa-users"></i> **Role:** Team Collaborator & Content Manager | **Focus:** Digital Media Production, Team Coordination</p>
+                <p class="role"><i class="fas fa-users"></i> <strong>Role:</strong> Team Collaborator & Content Manager | <strong>Focus:</strong> Digital Media Production, Team Coordination</p>
                 <div class="project-details">
                     <p><strong>The Challenge:</strong> To consistently produce, edit, and manage educational/religious video content across a digital platform while maintaining timely delivery and team synchronization.</p>
-                    <p><strong>My Action:</strong> I actively collaborated on the video creation and editing process. I took ownership of **managing social media posts** and meticulously **coordinating with team members** to ensure the content pipeline remained efficient and timely.</p>
+                    <p><strong>My Action:</strong> I actively collaborated on the video creation and editing process. I took ownership of <strong>managing social media posts</strong> and meticulously <strong>coordinating with team members</strong> to ensure the content pipeline remained efficient and timely.</p>
                     <p><strong>Skills Gained:</strong> This project provided practical, hands-on experience in teamwork, content management systems, digital media production, and meeting deadlines in a remote setting.</p>
                 </div>
                 <p class="keywords">#Teamwork #ContentManagement #DigitalMedia #VideoEditing</p>
@@ -47,9 +253,9 @@
 
             <article class="project-card">
                 <h3>Future Focus: Developing Secure Applications</h3>
-                <p class="role"><i class="fas fa-shield-alt"></i> **Goal:** Applying BCA knowledge to a personal cybersecurity or development project.</p>
+                <p class="role"><i class="fas fa-shield-alt"></i> <strong>Goal:</strong> Applying BCA knowledge to a personal cybersecurity or development project.</p>
                 <div class="project-details">
-                    <p>Actively researching and preparing for a personal project that merges **programming skills (HTML/CSS)** with **cybersecurity principles**. Aiming to create a small, functional app that promotes truth and justice, demonstrating secure coding practices.</p>
+                    <p>Actively researching and preparing for a personal project that merges <strong>programming skills (HTML/CSS)</strong> with <strong>cybersecurity principles</strong>. Aiming to create a small, functional app that promotes truth and justice, demonstrating secure coding practices.</p>
                 </div>
             </article>
 
@@ -58,32 +264,36 @@
         <section id="about" class="about">
             <h2>About & Expertise</h2>
             <div class="bio">
-                <p>Hello! I'm Khushboo Nazir, a BCA student dedicated to transitioning into the **Cybersecurity field**. I thrive on challenges, approaching every task with **logical thinking** and a commitment to research and learning. I'm actively seeking **small remote jobs** to gain real-world experience and funding while I complete my degree.</p>
+                <p>Hello! I'm Khushboo Nazir, a BCA student dedicated to transitioning into the <strong>Cybersecurity field</strong>. I thrive on challenges, approaching every task with <strong>logical thinking</strong> and a commitment to research and learning. I'm actively seeking <strong>small remote jobs</strong> to gain real-world experience and funding while I complete my degree.</p>
             </div>
             
             <div class="skills">
-                <h3>Technical & Core Competencies</h3>
-                <ul class="skill-list">
-                    <li><i class="fas fa-laptop-code"></i> Programming Fundamentals</li>
-                    <li><i class="fab fa-html5"></i> HTML & CSS</li>
-                    <li><i class="fas fa-brain"></i> Problem Solving & Logical Thinking</li>
-                    <li><i class="fas fa-cogs"></i> IT Expertise & Research</li>
-                    <li><i class="fas fa-file-alt"></i> Technical & Creative Writing</li>
-                    <li><i class="fas fa-users"></i> Teamwork & Collaboration</li>
-                </ul>
-
-                <h3>Certifications & Courses</h3>
-                <ul class="cert-list">
-                    <li>**NCPUL Course:** Completed 1-year course certificate (Diploma status pending).</li>
-                    <li>**BCA Degree:** Currently pursuing my Bachelor of Computer Applications.</li>
-                </ul>
-
-                <h3>Interests & Value</h3>
-                <ul class="interest-list">
-                    <li><i class="fas fa-book-reader"></i> Deep reading and research (Tech, Islamic Studies, General Knowledge).</li>
-                    <li><i class="fas fa-feather-alt"></i> Poetry Writing and Creative Content Creation.</li>
-                    <li><i class="fas fa-globe"></i> Developing apps and technologies that serve the world with truth and justice.</li>
-                </ul>
+                <div>
+                    <h3>Technical & Core Competencies</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-laptop-code"></i> Programming Fundamentals</li>
+                        <li><i class="fab fa-html5"></i> HTML & CSS</li>
+                        <li><i class="fas fa-brain"></i> Problem Solving & Logical Thinking</li>
+                        <li><i class="fas fa-cogs"></i> IT Expertise & Research</li>
+                        <li><i class="fas fa-file-alt"></i> Technical & Creative Writing</li>
+                        <li><i class="fas fa-users"></i> Teamwork & Collaboration</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Certifications & Courses</h3>
+                    <ul class="cert-list">
+                        <li><strong>NCPUL Course:</strong> Completed 1-year course certificate (Diploma status pending).</li>
+                        <li><strong>BCA Degree:</strong> Currently pursuing my Bachelor of Computer Applications.</li>
+                    </ul>
+                </div>
+                 <div>
+                    <h3>Interests & Values</h3>
+                    <ul class="interest-list">
+                        <li><i class="fas fa-book-reader"></i> Deep reading and research (Tech, Islamic Studies).</li>
+                        <li><i class="fas fa-feather-alt"></i> Poetry Writing and Creative Content Creation.</li>
+                        <li><i class="fas fa-globe"></i> Developing apps that serve with truth and justice.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -96,14 +306,15 @@
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
                 <a href="mailto:bittertruth118@gmail.com" class="social-link email">
-                    <i class="fas fa-envelope"></i> bittertruth118@gmail.com
+                    <i class="fas fa-envelope"></i> Email Me
                 </a>
             </div>
 
-            <p class="form-note">Use the links above or fill out the form below:</p>
+            <p class="form-note">You can also fill out the form below:</p>
 
             <form action="https://formsubmit.co/bittertruth118@gmail.com" method="POST">
                 
+                <!-- This field directs the user to a 'thank you' page after submission. You can create one on GitHub Pages. -->
                 <input type="hidden" name="_next" value="https://khushboomir.github.io/"> 
 
                 <label for="name">Name:</label>
@@ -125,6 +336,18 @@
         <p>&copy; 2024 Khushboo Nazir. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script> 
+    <script>
+        // This script handles smooth scrolling when navigation links are clicked.
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script> 
 </body>
 </html>
+
